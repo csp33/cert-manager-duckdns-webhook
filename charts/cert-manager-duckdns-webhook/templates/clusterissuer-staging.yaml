@@ -1,4 +1,4 @@
-{{- if .Values.clusterIssuer.production.create -}}
+{{- if .Values.clusterIssuer.staging.create -}}
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
@@ -13,7 +13,7 @@ spec:
     email: {{ $.Values.clusterIssuer.email }}
     preferredChain: "ISRG Root X1"
     privateKeySecretRef:
-      name: {{ include "cert-manager-duckdns-webhook.fullname" . }}-production
+      name: {{ include "cert-manager-duckdns-webhook.fullname" . }}-staging
     server: {{ $.Values.clusterIssuer.staging.server }}
     solvers:
       - dns01:

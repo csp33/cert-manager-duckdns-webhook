@@ -46,10 +46,9 @@ func (c *Connector) updateTXTRecord(ctx context.Context, domain, txt string) (*h
 	q.Add("domains", domain)
 	q.Add("token", c.token)
 	q.Add("verbose", "true")
+	q.Add("txt", txt)
 	if txt == "" {
 		q.Add("clear", "true")
-	} else {
-		q.Add("txt", txt)
 	}
 	req.URL.RawQuery = q.Encode()
 

@@ -32,6 +32,7 @@ func TestCleanTXTRecord(t *testing.T) {
 		assert.Equal(t, "GET", r.Method)
 		assert.Contains(t, r.URL.RawQuery, "domains=test.domain")
 		assert.Contains(t, r.URL.RawQuery, "token=test_token")
+		assert.Contains(t, r.URL.RawQuery, "txt=")
 		assert.Contains(t, r.URL.RawQuery, "clear=true")
 		w.WriteHeader(http.StatusOK)
 	}))
